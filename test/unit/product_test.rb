@@ -12,6 +12,18 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
   
+  test "product titles must be at least five characters long" do
+    product = products(:ruby)
+    assert product.valid?
+    
+    product.title = "four"
+    assert product.invalid?
+    assert_equal "is too short (minimum is 5 characters)", product.errors[:title].join("; ")
+    
+    product.title = "five5"
+    assert product.valid?
+  end
+  
   test "price must be positive" do
     product = Product.new(:title => "Some Book",
                           :description => "It's just some book.",
