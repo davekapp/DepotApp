@@ -19,7 +19,7 @@
       <a href="http://www..../news">News</a><br/>
       <a href="http://www..../contact">Contact</a><br/>
       <br/>
-      <span id="time">Retrieved at: <%= @time %></span>
+      <span id="time">Retrieved at: <%= Time.now.strftime("%H:%M %D") %></span>
     </div>
     <div id="main">
       <%= yield %>

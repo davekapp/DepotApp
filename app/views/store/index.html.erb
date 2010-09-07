@@ -3,14 +3,17 @@
 <% end %>
 
 <h1>The Wonderful Pragmatic Catalog</h1>
+<div style="font-size:small;">You have been here <%= @count %> times.</div>
 
 <% @products.each do |product| %>
   <div class="entry">
-    <%= image_tag(product.image_url) %>
+    <%= link_to image_tag(product.image_url), 
+      line_items_path(:product_id => product), {:method => :post} %>
     <h3><%= product.title %></h3>
     <%= sanitize product.description %>
     <div class="price_line">
       <span class="price"><%= number_to_currency(product.price) %></span>
+      <%= button_to "Add to cart", line_items_path(:product_id => product) %>
     </div>
   </div>
 <% end %>

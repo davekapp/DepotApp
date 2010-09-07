@@ -2,7 +2,12 @@ class StoreController < ApplicationController
   
   def index
     @products = Product.all
-    @time = Time.now.strftime("%H:%M %D")
+    if session[:counter].nil?
+      session[:counter] = 1
+    else
+      session[:counter] += 1
+    end
+    @count = session[:counter]
   end
 
 end
