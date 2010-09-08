@@ -160,3 +160,22 @@
 #store .entry form, #store .entry form div {
   display: inline;
 }
+
+/* styles for cart display */
+#store .cart_title {
+  font: 120% bold;
+}
+
+#store .item_price, #store .total_line {
+  text-align: right;
+}
+
+#store .total_line .total_cell {
+  font-weight: bold;
+  border-top: 2px solid #595;
+}
+
+#store .total_label {
+  font-weight: bold;
+  padding-right: 2em;
+}
