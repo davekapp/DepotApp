@@ -42,8 +42,12 @@ class LineItemsController < ApplicationController
   def create
     @cart = current_cart #current_cart method in application_controller.rb
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id) 
-
+    @line_item, @price_changed = @cart.add_product(product.id)
+    if @price_changed
+      flash[:price_changed] = true
+      flash[:line_item] = @line_item 
+    end
+    
     respond_to do |format|
       if @line_item.save
         session[:counter] = 0 unless session[:counter].nil?

@@ -1,4 +1,10 @@
 <div class="cart_title">Your Wonderful Cart</div>
+<% if flash[:price_changed] %>
+  <div class="notice">
+    The price of <%= flash[:line_item].product.title %> has changed to <%= number_to_currency(flash[:line_item].product.price) %>.
+     The current price will be applied to all copies of it in your cart.
+  </div>
+<% end %>
 <table>
   <% @cart.line_items.each do |item| %>
     <tr>
