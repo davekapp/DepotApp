@@ -1,4 +1,9 @@
 <div class="cart_title">Your Wonderful Cart</div>
+
+<% if notice %>
+<div id="notice"><%= notice %></div>
+<% end %>
+
 <% if flash[:price_changed] %>
   <div class="notice">
     The price of <%= flash[:line_item].product.title %> has changed to <%= number_to_currency(flash[:line_item].product.price) %>.
@@ -11,6 +16,7 @@
       <td><%= item.quantity %> &times; </td>
       <td><%= item.product.title %></td>
       <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+      <td><%= button_to "Remove", {:controller => 'line_items', :action => 'destroy', :id => item.id } ,{:method => :delete, :confirm => "Really? I mean, really?"}%></td>
     </tr>
   <% end %>
   

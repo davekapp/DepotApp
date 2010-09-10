@@ -18,3 +18,11 @@ ruby:
     This is a great and awesome book and I'm glad I have it. Really.
   price: 49.50
   image_url: ruby.png
+
+rails:
+  title: Programming Rails 3.0
+  description:
+    This is a book about making delicious sushi. Err, wait, no, it's about programming Ruby on Rails. My bad.
+  price: 44.50
+  image_url: rails.png
+  
