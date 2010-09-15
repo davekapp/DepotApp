@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
+    @ruby = products(:ruby)
     @update = {
       :title    =>  "Lorem Ipsum",
       :description => "So awesome",
@@ -47,9 +48,20 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
+      delete :destroy, :id => @ruby.to_param #using ruby book as it has no line items, whereas :one _does_ and should not be deletable
+    end
+
+    assert_response :success
+    assert_redirected_to products_path
+  end
+  
+  test "should not destroy products with line items" do
+    assert_difference('Product.count', 0) do
       delete :destroy, :id => @product.to_param
     end
 
+    assert_response :failure
     assert_redirected_to products_path
   end
+  
 end
