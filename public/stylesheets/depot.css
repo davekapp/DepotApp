@@ -1,5 +1,9 @@
 /* Global styles */
 
+body {
+  height: 100%;
+}
+
 #store #notice {
         color: #000;
         border: 2px solid red;
@@ -151,8 +155,9 @@
   padding-top: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
-  width: 12em;
+  width: 15em;
   background: #141;
+  height: 100%;
 }
 
 #side a {
@@ -187,4 +192,16 @@
 #store .total_label {
   font-weight: bold;
   padding-right: 2em;
+}
+
+/* Styles for sidebar cart */
+#cart, #cart table {
+  font-size: smaller;
+  color: white;
+}
+
+#cart table {
+  border-top: 1px dotted #595;
+  border-bottom: 1px dotted #595;
+  margin-bottom: 10px;
 }

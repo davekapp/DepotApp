@@ -52,7 +52,7 @@ class LineItemsController < ApplicationController
       if @line_item.save
         session[:counter] = 0 unless session[:counter].nil?
         
-        format.html { redirect_to(@line_item.cart) }
+        format.html { redirect_to store_url }
         format.xml  { render :xml => @line_item, :status => :created, :location => @line_item }
       else
         format.html { render :action => "new" }
