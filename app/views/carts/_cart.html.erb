@@ -9,4 +9,5 @@
   
 </table>
 
+<%= button_to "Checkout", new_order_url, :method => :get %>
 <%= button_to "Empty Cart", cart, :method => :delete, :remote => true, :confirm => "Empty your cart? Say it ain't so!" %>

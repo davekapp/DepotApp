@@ -51,7 +51,6 @@ class ProductsControllerTest < ActionController::TestCase
       delete :destroy, :id => @ruby.to_param #using ruby book as it has no line items, whereas :one _does_ and should not be deletable
     end
 
-    assert_response :success
     assert_redirected_to products_path
   end
   
@@ -60,7 +59,6 @@ class ProductsControllerTest < ActionController::TestCase
       delete :destroy, :id => @product.to_param
     end
 
-    assert_response :failure
     assert_redirected_to products_path
   end
   
