@@ -1,0 +1,10 @@
+<h3>Your Pragmatic-ish Order Shipped-ish!</h3>
+<div>
+  Hurrah, your order has theoretically shipped! Here's the details of this so-called order:
+</div>
+
+<table>
+  <tr><th colspan="2">Qty</th><th>Description</th></tr>
+  <%= render @order.line_items %>
+</table>
+

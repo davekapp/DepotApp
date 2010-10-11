@@ -4,6 +4,7 @@ class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
     @ruby = products(:ruby)
+    @product_two = products(:two)
     @update = {
       :title    =>  "Lorem Ipsum",
       :description => "So awesome",
@@ -48,7 +49,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
-      delete :destroy, :id => @ruby.to_param #using ruby book as it has no line items, whereas :one _does_ and should not be deletable
+      delete :destroy, :id => @product_two.to_param #using product 'two' as it has no line items, whereas :one _does_ and should not be deletable
     end
 
     assert_redirected_to products_path

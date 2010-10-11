@@ -53,6 +53,9 @@ class OrdersController < ApplicationController
         # once the order has been placed, we don't need this cart anymore - the user will get a new one automatically
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        # send out notification email
+        Notifier.order_received(@order).deliver
+        
         format.html { redirect_to(store_url, :notice => 'Your order has been placed! U R TEH RAWKS!') }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else

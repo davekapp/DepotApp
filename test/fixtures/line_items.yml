@@ -10,5 +10,5 @@ two:
   cart_id: 1
 
 in_order:
-  product: one
+  product: ruby
   order: one

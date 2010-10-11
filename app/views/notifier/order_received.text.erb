@@ -1,0 +1,9 @@
+Dear <%= @order.name %>,
+
+Thank you for your recent order from the Pragmatic-ish Bookstore. We appreciate your support of this fake store.
+
+Your order is as follows:
+
+<%= render @order.line_items %>
+
+You'll get another separate email when your order ships. Err, no you won't, because we don't actually ship anything.
