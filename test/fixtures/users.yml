@@ -1,0 +1,18 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+<% SALT = "NaCl" unless defined?(SALT) %>
+
+one:
+  name: MyString
+  hashed_password: MyString
+  salt: MyString
+
+two:
+  name: MyString
+  hashed_password: MyString
+  salt: MyString
+
+dave:
+  name: Dave
+  hashed_password: <%= User.encrypt_password("secret", SALT) %>
+  salt: <%= SALT %>
