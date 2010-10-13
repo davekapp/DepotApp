@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   
   validate :password_must_be_present
   
+  # we'll make sure they can't delete the last user with an after_destroy hook
+  after_destroy :ensure_an_admin_remains
+  
   class << self
     def authenticate(name, password)
       if user = find_by_name(name)
@@ -44,6 +47,12 @@ class User < ActiveRecord::Base
     
     def generate_salt
       self.salt = self.object_id.to_s + rand.to_s
+    end
+    
+    def ensure_an_admin_remains
+      if User.count.zero?
+        raise "Can't delete last user"
+      end
     end
     
     

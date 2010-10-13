@@ -51,4 +51,11 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+  
+  test "cannot destroy last user" do
+    assert_raise RuntimeError do
+      User.destroy_all    
+    end
+  end
+  
 end
