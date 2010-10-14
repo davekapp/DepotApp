@@ -1,0 +1,63 @@
+jp:
+  
+  layouts:
+    application:
+      title:        "プラグマティック本棚"
+      home:         "ホーム"
+      questions:    "お問い合わせ"
+      news:         "ニュース"
+      contact:      "連絡先"
+
+  store:
+    index:
+      title:   "プラグマティック・カタログ"
+      add_to_cart:  "カートに入れる"
+      
+  carts:
+    cart:
+      title:      "ショッピングカート"
+      empty_cart: "カートを空きにする"
+      checkout:   "お会計"
+      confirm:    "本当に空きにしてもよろしいですか？"
+      
+  number:
+    currency:
+      format:
+        unit:     "$US"
+        precision: 2
+        separator: "."
+        delimiter: ","
+        format:    "%u&nbsp;%n"
+        
+  orders:
+    new:
+      legend:   "ご注文の情報を入力して下さい"
+    form:
+      name:     "お名前"
+      address:  "住所"
+      email:    "メール"
+      pay_type: "お支払い方法"
+      pay_prompt: "以下でお選び下さい"
+      submit:   "注文する"
+      
+  activerecord:
+    models:
+      order:    "注文"
+    attributes:
+      order:
+        address:    "住所"
+        name:       "名前"
+        email:      "メール"
+        pay_type:   "支払い方法"
+    errors:
+      messages:
+        inclusion: "がリストに入っていません"
+        blank:     "が必要です"
+  errors:
+    template:
+      body:     "以下の物に問題がありました:"
+      header:
+        one:    "一つの問題でこの %{model} がセーブできません"
+        other:  "%{count}の問題があった故この%{model}をセーブできません"
+        
+  order_thanks: "ご注文ありがとうございます"

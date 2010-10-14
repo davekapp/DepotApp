@@ -2,7 +2,7 @@
 <div id="notice"><%= notice %></div>
 <% end %>
 
-<h1>The Wonderful Pragmatic Catalog</h1>
+<h1><%= t(".title") %></h1>
 <div style="font-size:small;">You have been here <%= @count %> times.</div>
 
 <% @products.each do |product| %>
@@ -13,7 +13,7 @@
     <%= sanitize product.description %>
     <div class="price_line">
       <span class="price"><%= number_to_currency(product.price) %></span>
-      <%= button_to "Add to cart", line_items_path(:product_id => product), :remote => true %>
+      <%= button_to t(".add_to_cart"), line_items_path(:product_id => product), :remote => true %>
     </div>
   </div>
 <% end %>

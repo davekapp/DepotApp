@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
         # send out notification email
         Notifier.order_received(@order).deliver
         
-        format.html { redirect_to(store_url, :notice => 'Your order has been placed! U R TEH RAWKS!') }
+        format.html { redirect_to(store_url, :notice => I18n.t(".order_thanks")) }
         format.xml  { render :xml => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
