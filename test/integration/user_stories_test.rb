@@ -14,9 +14,12 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     get "/"
     assert_response :success
     assert_template "index"
+    assert_not_nil session[:cart_id] # should have cart after store controller runs
+    cart = Cart.find(session[:cart_id])
+    assert_equal 0, cart.line_items.size
     
     # user selects the Ruby book, since it's good :)
-    xml_http_request :post, '/line_items', :product_id => ruby_book.id
+    xml_http_request :post, '/en/line_items', :product_id => ruby_book.id
     assert_response :success
     
     cart = Cart.find(session[:cart_id])
@@ -24,11 +27,11 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal ruby_book, cart.line_items[0].product
     
     # now they place the order
-    get "/orders/new"
+    get "/en/orders/new"
     assert_response :success
     assert_template "new"
     
-    post_via_redirect "/orders", :order => {
+    post_via_redirect "/en/orders", :order => {
       :name =>      "Dave Thomas",
       :address =>   "123 The Street",
       :email =>     "dave@example.com",
